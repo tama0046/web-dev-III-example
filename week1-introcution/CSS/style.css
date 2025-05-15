@@ -1,0 +1,334 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #f0f2f5; /* Light grey background like Calendly */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.booking-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    max-width: 900px; /* Adjust as needed */
+    width: 100%;
+    overflow: hidden; /* Important for the ribbon */
+    position: relative; /* For ribbon positioning */
+}
+
+.event-details-panel {
+    flex: 1; /* Takes up available space */
+    padding: 30px 35px;
+    border-right: 1px solid #e2e8f0; /* Vertical separator */
+    display: flex;
+    flex-direction: column;
+}
+
+.scheduler-panel {
+    flex: 1; /* Takes up available space */
+    padding: 30px 35px;
+    position: relative; /* For ribbon positioning */
+}
+
+.organization-name {
+    font-size: 0.875rem; /* 14px */
+    color: #718096; /* Slate grey */
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.event-title {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 700;
+    color: #1a202c; /* Darker grey/black */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #4a5568; /* Slightly lighter than main text */
+}
+
+.info-item .icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: #718096;
+}
+
+.instructions-bold {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.instructions-regular {
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.instructions-regular a {
+    color: #006bff; /* Calendly blue for links */
+    text-decoration: underline;
+}
+.instructions-regular a:hover {
+    text-decoration: none;
+}
+
+.urgent-text {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #2d3748;
+}
+
+.cookie-settings {
+    font-size: 0.9rem;
+    color: #38a169; /* Green color for cookie settings */
+    text-decoration: none;
+    margin-top: auto; /* Pushes to the bottom */
+}
+.cookie-settings:hover {
+    text-decoration: underline;
+}
+
+/* Scheduler Panel Styles */
+.calendly-ribbon {
+    position: absolute;
+    top: -2px; /* Adjust for exact position */
+    right: -2px;
+    background-color: #4a5568; /* Dark grey */
+    color: white;
+    padding: 8px 35px 8px 15px;
+    font-size: 0.6rem; /* Smaller text */
+    font-weight: bold;
+    text-align: center;
+    transform: rotate(45deg) translate(22%, -45%); /* Approximate rotation and positioning */
+    transform-origin: top right;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    z-index: 10;
+}
+.calendly-ribbon div:first-child {
+    font-size: 0.6rem;
+}
+.calendly-ribbon div:last-child {
+    font-size: 0.8rem;
+}
+
+
+.scheduler-title {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: #1a202c;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.calendar {
+    margin-bottom: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.current-month-year {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #718096;
+    cursor: pointer;
+    padding: 5px;
+}
+.nav-arrow:hover {
+    color: #2d3748;
+}
+
+.calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    color: #718096;
+}
+
+.calendar-dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px; /* Space between date cells */
+}
+
+.calendar-dates-grid span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px; /* Adjust for desired size */
+    width: 36px;  /* Adjust for desired size */
+    margin: 0 auto; /* Center the circle if width is fixed */
+    border-radius: 50%;
+    font-size: 0.9rem;
+    color: #2d3748;
+    cursor: default;
+    position: relative; /* For the dot */
+}
+
+.calendar-dates-grid span.date-item { /* Class added by JS to actual date cells */
+    cursor: pointer;
+}
+.calendar-dates-grid span.date-item:hover:not(.available) {
+    background-color: #f0f2f5; /* Light hover for non-available dates */
+}
+
+
+.calendar-dates-grid span.available {
+    background-color: #e6fffa; /* Very light green */
+    color: #38a169; /* Green text */
+    font-weight: 600;
+}
+.calendar-dates-grid span.available:hover {
+    background-color: #c6f6d5; /* Slightly darker green on hover */
+}
+
+.calendar-dates-grid span.has-dot::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; /* Adjust dot position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #718096; /* Dot color */
+    border-radius: 50%;
+}
+
+
+.timezone-selector {
+    margin-top: 20px;
+}
+
+.timezone-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.timezone-display {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0; /* Light grey border */
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #2d3748;
+    cursor: pointer;
+}
+.timezone-display:hover {
+    border-color: #a0aec0;
+}
+
+.timezone-display .icon {
+    margin-right: 8px;
+    color: #718096;
+}
+
+.timezone-display .dropdown-arrow {
+    margin-left: auto;
+    font-size: 0.7rem;
+    color: #718096;
+}
+
+/* Responsive adjustments (optional, basic example) */
+@media (max-width: 768px) {
+    .booking-container {
+        flex-direction: column;
+        max-width: 500px; /* Adjust for smaller screens */
+    }
+    .event-details-panel {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0; /* Separator for vertical layout */
+        padding: 25px;
+    }
+    .scheduler-panel {
+        padding: 25px;
+    }
+    .calendly-ribbon {
+        /* May need adjustments for smaller screens if it looks odd */
+        transform: rotate(45deg) translate(15%, -55%);
+    }
+    .event-title {
+        font-size: 1.5rem;
+    }
+    .scheduler-title {
+        font-size: 1.15rem;
+    }
+    .calendar-dates-grid span {
+        height: 32px;
+        width: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-details-panel, .scheduler-panel {
+        padding: 20px;
+    }
+    .event-title {
+        font-size: 1.3rem;
+    }
+    .info-item, .instructions-bold, .instructions-regular, .cookie-settings {
+        font-size: 0.85rem;
+    }
+    .calendar-days-header {
+        font-size: 0.65rem;
+    }
+    .calendar-dates-grid span {
+        height: 28px;
+        width: 28px;
+        font-size: 0.8rem;
+    }
+    .calendly-ribbon {
+        padding: 6px 25px 6px 10px;
+        transform: rotate(45deg) translate(10%, -60%);
+    }
+    .calendly-ribbon div:first-child { font-size: 0.5rem; }
+    .calendly-ribbon div:last-child { font-size: 0.7rem; }
+}
+
+/* Add this to your style.css */
+.calendar-dates-grid span.selected {
+    background-color: #006bff; /* Calendly blue */
+    color: white;
+    font-weight: bold;
+    border: 2px solid #0052cc; /* Darker blue border */
+}
+.calendar-dates-grid span.selected:hover {
+    background-color: #0052cc;
+}
