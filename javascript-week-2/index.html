@@ -4,11 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEEK-2-JAVASCRIPT_INTRODUCTION</title>
+    <title>Practice of the form example</title>
 </head>
 
 <body>
-    <script src="scripts/scripts.js"></script>
+
+    <form action="#" method="get">
+        <p>What is the JavaScript keyword for the HTML pager?</p>
+        <div>
+            <!--the label's for must match the field's id-->
+            <label for="answer">Your answer</label>
+            <!--input field requires a few attributes:
+            type - what kind of form field this is 
+            name - a label for the server to get the value
+            id - links the form field to the label-->
+            <input type="text" name="answer" id="answer">
+        </div>
+        <div id="feedback"></div>
+    </form>
+
+    <script src="scripts/scripts.js"></script> <!-- Make sure this points to your JS file -->
 </body>
 
 </html>
